@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace BackOffice.Application.Hotels.Exceptions
 {
-    public class HotelDeletedSuccessfully : Exception
+    public class HotelNotUpdateFailedException : Exception
     {
         public override string Message { get; }
 
-        public HotelDeletedSuccessfully() : base()
+        public HotelNotUpdateFailedException() : base()
         {
-            Message = "The hotel was deleted.";
+            Message = "The hotel could not be updated";
         }
+
     }
 }

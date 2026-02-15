@@ -11,8 +11,8 @@ namespace BackOffice.Application.Hotels.Interfaces
     {
         Task<GetHotels> GetHotelByIdAsync(int id);
         Task<List<GetHotels>> GetAllHotelAsync();
-        //Task<GetCards> Create(CreateCard model);
-        //Task<bool> UpdateAsync(UpdateCard destination);
-        //Task<bool> SoftDeleteAsync(int cardId);
+        Task<GetHotels> Create(CreateHotel model);
+        Task<bool> UpdateAsync(UpdateHotel destination);
+        Task<bool> SoftDeleteAsync(int hotelId);
     }
 }

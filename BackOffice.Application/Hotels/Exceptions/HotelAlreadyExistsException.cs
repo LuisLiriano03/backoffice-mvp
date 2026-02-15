@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace BackOffice.Application.Hotels.Exceptions
 {
-    public class HotelDeletedSuccessfully : Exception
+    public class HotelAlreadyExistsException : Exception
     {
         public override string Message { get; }
 
-        public HotelDeletedSuccessfully() : base()
+        public HotelAlreadyExistsException(string errorMessage) : base(errorMessage)
         {
-            Message = "The hotel was deleted.";
+            Message = "The following fields already exist for another hotel: " + errorMessage;
         }
     }
 }

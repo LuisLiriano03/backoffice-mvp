@@ -28,35 +28,33 @@ namespace BackOffice.Application.Hotels.Mappings
 
         }
 
-        //public static Card ToEntity(this CreateCard dto)
-        //{
-        //    if (dto == null) return null;
+        public static Hotel ToEntity(this CreateHotel dto)
+        {
+            if (dto == null) return null;
 
-        //    return new Card
-        //    {
-        //        CardNumber = dto.CardNumber,
-        //        ExpirationDate = dto.ExpirationDate,
-        //        CardholderName = dto.CardholderName,
-        //        Cvv = dto.Cvv,
-        //        IsActive = true,
-        //        IsDeleted = false,
-        //        CreatedDate = DateTime.Now,
-        //        UpdatedDate = DateTime.Now
-        //    };
-        //}
+            return new Hotel
+            {
+                HotelName = dto.HotelName,
+                City = dto.City,
+                Country = dto.Country,
+                IsActive = true,
+                IsDeleted = false,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now
+            };
+        }
 
-        //public static void ApplyUpdate(this Card entity, UpdateCard dto)
-        //{
-        //    if (entity == null || dto == null) return;
+        public static void ApplyUpdate(this Hotel entity, UpdateHotel dto)
+        {
+            if (entity == null || dto == null) return;
 
-        //    entity.CardId = dto.Id;
-        //    entity.CardNumber = dto.CardNumber;
-        //    entity.ExpirationDate = dto.ExpirationDate;
-        //    entity.CardholderName = dto.CardholderName;
-        //    entity.Cvv = dto.Cvv;
-        //    entity.IsActive = dto.IsActive == (int)ActiveFlag.Active;
-        //    entity.UpdatedDate = DateTime.Now;
-        //}
+            entity.HotelId = dto.HotelId;
+            entity.HotelName = dto.HotelName;
+            entity.City = dto.City;
+            entity.Country = dto.Country;
+            entity.IsActive = dto.IsActive == (int)ActiveFlag.Active;
+            entity.UpdatedDate = DateTime.Now;
+        }
 
     }
 
