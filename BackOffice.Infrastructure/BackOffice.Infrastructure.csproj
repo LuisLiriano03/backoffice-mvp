@@ -7,11 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DbContext\" />
-    <Folder Include="Repositorys\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BackOffice.Application\BackOffice.Application.csproj" />
   </ItemGroup>
 
