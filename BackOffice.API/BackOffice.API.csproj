@@ -11,11 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Config\" />
-    <Folder Include="Utility\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\BackOffice.Application\BackOffice.Application.csproj" />
     <ProjectReference Include="..\BackOffice.Infrastructure\BackOffice.Infrastructure.csproj" />
   </ItemGroup>
