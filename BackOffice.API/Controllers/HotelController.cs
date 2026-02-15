@@ -1,10 +1,6 @@
 ﻿using BackOffice.API.Utility;
 using BackOffice.Application.Hotels.DTOs;
 using BackOffice.Application.Hotels.Interfaces;
-using BackOffice.Domain.Entities;
-using BackOffice.Domain.Interfaces;
-using Microsoft.AspNetCore.Cors.Infrastructure;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BackOffice.API.Controllers
@@ -32,7 +28,7 @@ namespace BackOffice.API.Controllers
 
                 response.status = response.value != null;
 
-                response.message = "Successful Hotel";
+                response.message = "The hotel was successful";
             }
             catch (Exception ex)
             {
@@ -53,7 +49,7 @@ namespace BackOffice.API.Controllers
             {
                 response.status = true;
                 response.value = await _hotelService.GetAllHotelAsync();
-                response.message = "Successful Hotels";
+                response.message = "The hotel was successful";
             }
             catch (Exception ex)
             {
@@ -66,5 +62,72 @@ namespace BackOffice.API.Controllers
         }
 
 
+        [HttpPost]
+        [Route("create")]
+        public async Task<IActionResult> create([FromBody] CreateHotel createHotel)
+        {
+            var response = new Response<GetHotels>();
+
+            try
+            {
+                response.status = true;
+                response.value = await _hotelService.Create(createHotel);
+                response.message = "Hotel was successful";
+            }
+            catch (Exception ex)
+            {
+                response.status = false;
+                response.message = ex.Message;
+            }
+
+            return Ok(response);
+
+        }
+
+
+        [HttpPut]
+        [Route("update")]
+        public async Task<IActionResult> EditCard([FromBody] UpdateHotel updateHotel)
+        {
+            var response = new Response<bool>();
+
+            try
+            {
+                response.status = true;
+                response.value = await _hotelService.UpdateAsync(updateHotel);
+                response.message = "Hotel information updated successfully";
+            }
+            catch (Exception ex)
+            {
+                response.status = false;
+                response.message = ex.Message;
+            }
+
+            return Ok(response);
+
+        }
+
+        [HttpDelete]
+        [Route("delete/{id}")]
+        public async Task<IActionResult> SoftDeleteUser(int id)
+        {
+            var response = new Response<bool>();
+
+            try
+            {
+                response.value = await _hotelService.SoftDeleteAsync(id);
+                response.status = true;
+                response.message = "Hotel deleted successfully";
+            }
+            catch (Exception ex)
+            {
+                response.status = false;
+                response.message = ex.Message;
+            }
+
+            return Ok(response);
+        }
+
     }
+
 }
